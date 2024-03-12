@@ -1,0 +1,24 @@
+import requests
+
+def disable_game(chat_id):
+  url = "https://api.telegram.org/bot<TOKEN>/stopGame"
+  data = {
+    "chat_id": chat_id
+  }
+  response = requests.post(url, json=data)
+  if response.status_code == 200:
+    return True
+  else:
+    return False
+
+def main():
+  token = "<7071013376:AAFAD7wpJNmeOgAtVDGrT0npog3ius4wWdI>"
+  chat_id = "<316189541>"
+
+  if disable_game(chat_id):
+    print("تم تعطيل اللعبة بنجاح.")
+  else:
+    print("فشل تعطيل اللعبة.")
+
+if __name__ == "__main__":
+  main()
